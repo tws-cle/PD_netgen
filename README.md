@@ -5,3 +5,14 @@ NETGEN is an automatic 3d tetrahedral mesh generator. It accepts input from cons
 Find the Open Source Community on https://ngsolve.org
 Support & Services: https://cerbsim.com
 
+### How to build
+
+Release mode:
+```cmd
+cmake "../src" -DCMAKE_INSTALL_PREFIX="BASEDIR/install" -DOpenCascade_DIR="C:/Program Files/OCCT/cmake" -DCMAKE_BUILD_TYPE="Release"
+cmake --build . --config Release --target install
+```
+
+where:
+- OpenCascade_DIR points to OCC folder with cmake files (I was using OCC v7.6.3 due it being the constraint from the GUI)
+- CMAKE_BUILD_TYPE: Debug, Release. This was patched for debug mode to link to MultiThreadedDebugDLL and not yet in the official Netgen
